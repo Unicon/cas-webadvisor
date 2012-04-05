@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.esc.cas</groupId>
+	<artifactId>webadvisor-filter</artifactId>
+	<packaging>war</packaging>
+	<version>1.0</version>
+
+	<build>
+		<plugins>
+			
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warName>WebAdvisor</warName>
+					<overlays>
+						<overlay>
+							<groupId>com.datatel</groupId>
+							<artifactId>webadvisor</artifactId>
+							<excludes>
+								<!-- <exclude>WEB-INF/lib/cas-client-core-3.1.10.jar</exclude> -->
+							</excludes>
+						</overlay>
+					</overlays>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.datatel</groupId>
+			<artifactId>webadvisor</artifactId>
+			<version>3</version>
+			<type>war</type>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/WebAdvisor.war</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.3</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jasig.cas.client</groupId>
+			<artifactId>cas-client-core</artifactId>
+			<version>${cas.client.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-codec</groupId>
+					<artifactId>commons-codec</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>compile</scope>
+			<version>1.2.14</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+			<scope>compile</scope>
+		</dependency>
+		
+	</dependencies>
+
+	<properties>
+		<cas.client.version>3.2.1</cas.client.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>ja-sig</id>
+			<url>http://oss.sonatype.org/content/repositories/releases/</url>
+		</repository>
+	</repositories>
+</project>
