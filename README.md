@@ -165,15 +165,13 @@ this file is so named `WebAdvisor.war`.
 
 * Adjust the URLs for the following filters:
 
-1. CAS Authentication Filter
-    Adjust the `casServerLoginUrl` and `serverName` values.
+1. CAS Authentication Filter: Adjust the `casServerLoginUrl` and `serverName` values.
 
-2. CAS Validation Filter
-    Adjust the `casServerLoginUrl` and `serverName` values.
+2. CAS Validation Filter: Adjust the `casServerLoginUrl` and `serverName` values.
 
-3. WebAdvisor Authentication Filter
-    Decode the `webadvisorSSOURL`, adjust the address and encode the URL again.
-    Decode the `webadvisorLoginURL`, adjust the address and encode the URL again.
+3. WebAdvisor Authentication Filter: 
+    1. Decode the `webadvisorSSOURL`, adjust the address and encode the URL again.
+    2. Decode the `webadvisorLoginURL`, adjust the address and encode the URL again.
 
 
 ##Build
