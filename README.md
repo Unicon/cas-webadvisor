@@ -12,10 +12,10 @@ overlay, adding the extra WebAdvisor filter and web.xml entries onto the target 
 * Place the WebAdvisor WAR file inside the lib directory of the project. The build process assumes 
 this file is so named `WebAdvisor.war`. 
 
-* Extract the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
+* Extract a copy of the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
 `cas-webadvisor\src\main\webapp` directory. 
 
-* Add the following filter entries near the bottom and just above the </web-app> tag:
+* Add the following filter entries near the bottom and just above the `</web-app>` tag:
 
 ```xml
 <filter>
@@ -176,7 +176,13 @@ this file is so named `WebAdvisor.war`.
 
 ##Build
 On the command line, navigate to the project directory and execute the maven command: `mvn clean package`.
+
+Remove all previous deployments/copies of the Web Advisor WAR file and its deployment directory inside `webapps`. You
+may also want to remove the Tomcat `work` directory and clear out all the logs to start fresh. 
+
 Copy the `WebAdvisor.war` file from the `target` directory and place it into Tomcat's `webapps` folder.
+
+Start Tomcat. 
 
 ##Logging
 See the `log4j.xml` file inside the  `WebAdvisor\WEB-INF\classes` directory.
