@@ -50,9 +50,14 @@ this file is so named `WebAdvisor.war`.
       <param-name>serverName</param-name>
       <param-value>https://webadvsrv.esc.edu</param-value>
     </init-param>
+    
+    <!-- Change the param-value for your WebAdvisor server! 
+         Also, the URL assumes the context path `WebAdvisor` which
+         you may have to change.
+    -->
     <init-param>
       <param-name>proxyCallbackUrl</param-name>
-      <param-value>https://webadvsrv.esc.edu/DEVSSOPO/CasProxyServlet</param-value>
+      <param-value>https://webadvsrv.esc.edu/WebAdvisor/CasProxyServlet</param-value>
     </init-param>
     <init-param>
       <param-name>proxyReceptorUrl</param-name>
@@ -67,6 +72,8 @@ this file is so named `WebAdvisor.war`.
       <param-name>log4jLocation</param-name>
       <param-value>classpath:log4j.xml</param-value>
     </init-param>
+    
+    <!-- Change the param-value for your CAS server! -->
     <init-param>
       <param-name>clearPassURL</param-name>
       <param-value>https://login.esc.edu/cas/clearPass</param-value>
@@ -87,21 +94,37 @@ this file is so named `WebAdvisor.war`.
      <!-- This is where the filter redirects to to perform authentication -->
     <init-param>
       <param-name>loginURI</param-name>
-      <param-value>/DEVSSOPO/Login</param-value> 
+      <param-value>/WebAdvisor/Login</param-value> 
     </init-param>
+    
+    <!-- 
+         Decode the URL, change the param-value for your WebAdvisor server!
+         and encode it back. 
+         
+         Also, the URL assumes the context path `WebAdvisor` which
+         you may have to change.
+    -->
     <init-param>
       <param-name>webadvisorSSOURL</param-name>
-      <param-value>https%3A%2F%2Fwebadvsrv.esc.edu%2FDEVSSOPO%2Fsso%3FCONSTITUENCY%3DWBST%26type%3DP%26pid%3DST-XWESTGRADE</param-value>  <!-- This is the endpoint to which the request for user's SSO token will be sent -->
+      <param-value>https%3A%2F%2Fwebadvsrv.esc.edu%2FWebAdvisor%2Fsso%3FCONSTITUENCY%3DWBST%26type%3DP%26pid%3DST-XWESTGRADE</param-value>  <!-- This is the endpoint to which the request for user's SSO token will be sent -->
     </init-param>
+    
+    <!-- 
+         Decode the URL, change the param-value for your WebAdvisor server!
+         and encode it back. 
+         
+         Also, the URL assumes the context path `WebAdvisor` which
+         you may have to change.
+    -->
     <init-param>
       <param-name>webadvisorLoginURL</param-name>
-      <param-value>https%3A%2F%2Fwebadvsrv.esc.edu%2FDEVSSOPO%2Fst%3FCONSTITUENCY%3DWBST%26type%3DP%26pid%3DST-XWESTGRADE</param-value>  <!-- This is where the SSO token will be sent for authentication -->
+      <param-value>https%3A%2F%2Fwebadvsrv.esc.edu%2FWebAdvisor%2Fst%3FCONSTITUENCY%3DWBST%26type%3DP%26pid%3DST-XWESTGRADE</param-value>  <!-- This is where the SSO token will be sent for authentication -->
     </init-param>
     
     <!-- This is where the filter redirects to after WebAdvisor login -->
     <init-param>
       <param-name>mainMenuURI</param-name>
-      <param-value>/DEVSSOPO/</param-value>  
+      <param-value>/WebAdvisor/</param-value>  
     </init-param>
     
     <!-- Forward these HTTP headers with the WebAdvisor login -->
@@ -140,11 +163,11 @@ this file is so named `WebAdvisor.war`.
 
 ```
 
-*Adjust the URLs for the following filters:
+* Adjust the URLs for the following filters:
 -CAS Authentication Filter
 Adjust the `casServerLoginUrl` and `serverName` values.
 
--CAS Validation Filter
+- CAS Validation Filter
 Adjust the `casServerLoginUrl` and `serverName` values.
 
 -WebAdvisor Authentication Filter
