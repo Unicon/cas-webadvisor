@@ -63,17 +63,23 @@ this file is so named `WebAdvisor.war`.
       <param-name>clearPassURL</param-name>
       <param-value>https://login.esc.edu/cas/clearPass</param-value>
     </init-param>
+    
+    <!-- This is what the filter uses to trigger redirect to CAS authentication -->
     <init-param>
       <param-name>loginPattern</param-name>
-      <param-value>SS=LGRQ</param-value>  <!-- This is what the filter uses to trigger redirect to CAS authentication -->
+      <param-value>SS=LGRQ</param-value>  
     </init-param>
+    
+    <!-- This is what the filter uses to trigger removal of CAS assertion -->
     <init-param>
       <param-name>logoutPattern</param-name>
-      <param-value>pid=UT-LORQ</param-value>  <!-- This is what the filter uses to trigger removal of CAS assertion -->
+      <param-value>pid=UT-LORQ</param-value>  
     </init-param>
+    
+     <!-- This is where the filter redirects to to perform authentication -->
     <init-param>
       <param-name>loginURI</param-name>
-      <param-value>/DEVSSOPO/Login</param-value>  <!-- This is where the filter redirects to to perform authentication -->
+      <param-value>/DEVSSOPO/Login</param-value> 
     </init-param>
     <init-param>
       <param-name>webadvisorSSOURL</param-name>
@@ -83,16 +89,22 @@ this file is so named `WebAdvisor.war`.
       <param-name>webadvisorLoginURL</param-name>
       <param-value>https%3A%2F%2Fwebadvsrv.esc.edu%2FDEVSSOPO%2Fst%3FCONSTITUENCY%3DWBST%26type%3DP%26pid%3DST-XWESTGRADE</param-value>  <!-- This is where the SSO token will be sent for authentication -->
     </init-param>
+    
+    <!-- This is where the filter redirects to after WebAdvisor login -->
     <init-param>
       <param-name>mainMenuURI</param-name>
-      <param-value>/DEVSSOPO/</param-value>  <!-- This is where the filter redirects to after WebAdvisor login -->
+      <param-value>/DEVSSOPO/</param-value>  
     </init-param>
+    
+    <!-- Forward these HTTP headers with the WebAdvisor login -->
     <init-param>
-      <param-name>browserHeadersToForward</param-name>  <!-- Forward these HTTP headers with the WebAdvisor login -->
+      <param-name>browserHeadersToForward</param-name>  
       <param-value>cookie host user-agent accept accept-language accept-encoding accept-charset</param-value>
     </init-param>
+    
+     <!-- Return these WebAdvisor HTTP headers after authentication -->
     <init-param>
-      <param-name>webAdvisorHeadersToForward</param-name>  <!-- Return these WebAdvisor HTTP headers after authentication -->
+      <param-name>webAdvisorHeadersToForward</param-name> 
       <param-value>Set-Cookie Content-Type Content-Length</param-value>
     </init-param>
   </filter>
@@ -112,8 +124,9 @@ this file is so named `WebAdvisor.war`.
     <url-pattern>/Login</url-pattern>
   </filter-mapping>
    
+  <!-- This filter must come AFTER the Jasig CAS Client filters above --> 
   <filter-mapping>
-    <filter-name>WebAdvisor Authentication Filter</filter-name>  <!-- This filter must come AFTER the Jasig CAS Client filters above -->
+    <filter-name>WebAdvisor Authentication Filter</filter-name>  
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
