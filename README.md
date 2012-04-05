@@ -12,19 +12,23 @@ overlay, adding the extra WebAdvisor filter and web.xml entries onto the target 
 *Place the WebAdvisor WAR file inside the lib directory of the project. The build process assumes 
 this file is so named `WebAdvisor.war`. 
 
-*Extract the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
+* Extract the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
 `cas-webadvisor\src\main\webapp` directory. 
 
-*Add the following filter entries near the bottom and just above the </web-app> tag.
+* Add the following filter entries near the bottom and just above the </web-app> tag:
 
 ```xml
 <filter>
     <filter-name>CAS Authentication Filter</filter-name>
     <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>
+    
+    <!-- Change the param-value for your CAS server! -->
     <init-param>
       <param-name>casServerLoginUrl</param-name>
       <param-value>https://login.esc.edu/cas/login</param-value>
     </init-param>
+    
+    <!-- Change the param-value for your WebAdvisor server! -->
     <init-param>
       <param-name>serverName</param-name>
       <param-value>https://webadvsrv.esc.edu</param-value>
@@ -34,10 +38,14 @@ this file is so named `WebAdvisor.war`.
   <filter>
     <filter-name>CAS Validation Filter</filter-name>
     <filter-class>org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</filter-class>
+    
+    <!-- Change the param-value for your CAS server! -->
     <init-param>
       <param-name>casServerUrlPrefix</param-name>
       <param-value>https://login.esc.edu/cas</param-value>
     </init-param>
+    
+    <!-- Change the param-value for your WebAdvisor server! -->
     <init-param>
       <param-name>serverName</param-name>
       <param-value>https://webadvsrv.esc.edu</param-value>
