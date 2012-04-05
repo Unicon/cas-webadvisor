@@ -175,5 +175,8 @@ this file is so named `WebAdvisor.war`.
 
 
 ##Build
+On the command line, navigate to the project directory and execute the maven command: `mvn clean package`.
+Copy the `WebAdvisor.war` file from the `target` directory and place it into Tomcat's `webapps` folder.
 
 ##Logging
+See the `log4j.xml` file inside the  `WebAdvisor\WEB-INF\classes` directory.
