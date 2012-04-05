@@ -9,7 +9,7 @@ The code hosted in this repository only provides the basic project template that
 overlay, adding the extra WebAdvisor filter and web.xml entries onto the target WebAdvisor WAR file. 
 
 ##Configuration
-*Place the WebAdvisor WAR file inside the lib directory of the project. The build process assumes 
+* Place the WebAdvisor WAR file inside the lib directory of the project. The build process assumes 
 this file is so named `WebAdvisor.war`. 
 
 * Extract the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
