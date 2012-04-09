@@ -13,7 +13,7 @@ overlay, adding the extra WebAdvisor filter and web.xml entries onto the target 
 The build process assumes this file is so named `WebAdvisor.war`. 
 
 * Extract a copy of the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
-`cas-webadvisor\src\main\webapp` directory. 
+`cas-webadvisor\src\main\webapp\WEB-INF` directory. 
 
 * Add the following filter entries near the bottom and just above the `</web-app>` tag. You could use a service like the
 [URL Decoder/Encoder](http://meyerweb.com/eric/tools/dencoder/) to encode/decode URLs when needed.
