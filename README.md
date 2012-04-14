@@ -69,6 +69,7 @@ The build process assumes this file is so named `WebAdvisor.war`.
     <init-param>
       <param-name>allowAnyProxy</param-name>
       <param-value>true</param-value>
+    </init-param>
   </filter>
    
   <filter>
