@@ -60,10 +60,15 @@ The build process assumes this file is so named `WebAdvisor.war`.
       <param-name>proxyCallbackUrl</param-name>
       <param-value>https://webadvsrv.esc.edu/WebAdvisor/CasProxyServlet</param-value>
     </init-param>
+    
     <init-param>
       <param-name>proxyReceptorUrl</param-name>
       <param-value>/CasProxyServlet</param-value>
     </init-param>
+    
+    <init-param>
+      <param-name>allowAnyProxy</param-name>
+      <param-value>true</param-value>
   </filter>
    
   <filter>
