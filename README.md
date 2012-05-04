@@ -12,6 +12,8 @@ overlay, adding the extra WebAdvisor filter and web.xml entries onto the target 
 * Place the WebAdvisor WAR file inside the lib directory of the project. (Create one at `cas-webadvisor\lib`).
 The build process assumes this file is so named `WebAdvisor.war`. 
 
+* Refer to the `WebAdvisor Installation and Administration` documentation, section `Setting Up a Portal Instance` to understand how to configure the `SERVLET_ID` parameters and the configuration of the `SingleSignOn` Servlet mappings.
+
 * Extract a copy of the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
 `cas-webadvisor\src\main\webapp\WEB-INF` directory. 
 
