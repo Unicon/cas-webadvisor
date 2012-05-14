@@ -1,4 +1,4 @@
-#CAS Authentication for Web Advisor
+ #CAS Authentication for Web Advisor
 
 ##Intro
 This project is based on [Single Sign On to WebAdvisor Using CAS, ClearPass, and a Custom Java Filter]
@@ -12,7 +12,11 @@ overlay, adding the extra WebAdvisor filter and web.xml entries onto the target 
 * Place the WebAdvisor WAR file inside the lib directory of the project. (Create one at `cas-webadvisor\lib`).
 The build process assumes this file is so named `WebAdvisor.war`. 
 
-* Refer to the `WebAdvisor Installation and Administration` documentation, section `Setting Up a Portal Instance` to understand how to configure the `SERVLET_ID` parameters and the configuration of the `SingleSignOn` Servlet mappings.
+* Refer to the `WebAdvisor Installation and Administration` documentation, section `Setting Up a Portal Instance` 
+to understand how to configure the `SERVLET_ID` parameters and the configuration of the `SingleSignOn` 
+servlet mappings. Essentially, you'll have to assign a value to the `SERVLET_ID` parameter of the `SingleSignOn` 
+that matches the value defined for the main `WebAdvisor` servlet. Then, define a `<url-pattern>` for the `SingleSignOn` 
+servlet that will be used as the `WebAdvisorSSOUrl` below. (i.e. `/SSOWebAdvisor`)
 
 * Extract a copy of the `WebAdvisor\WEB-INF\web.xml` file from the `WebAdvisor.war` file and place it inside the 
 `cas-webadvisor\src\main\webapp\WEB-INF` directory. 
