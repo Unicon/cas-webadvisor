@@ -1,4 +1,4 @@
- #CAS Authentication for Web Advisor
+#CAS Authentication for Web Advisor
 
 ##Intro
 This project is based on [Single Sign On to WebAdvisor Using CAS, ClearPass, and a Custom Java Filter]
