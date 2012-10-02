@@ -6,6 +6,7 @@ package edu.esc.cas.client.webadvisor.filter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
@@ -125,6 +126,9 @@ public final class WebAdvisorLoginFilter extends AbstractConfigurationFilter {
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
+        
+        request.setCharacterEncoding("UTF-8");
+        
         String url = request.getRequestURL().toString();
         String queryString = request.getQueryString();
 
@@ -288,9 +292,9 @@ public final class WebAdvisorLoginFilter extends AbstractConfigurationFilter {
             PostMethod post = new PostMethod(this.webadvisorSSOURL);
             StringBuilder sb = new StringBuilder();
             sb.append("<?xml version=\"1.0\"?><!DOCTYPE Request SYSTEM \"SSORequest.dtd\"><Request><LogOn username=\"");
-            sb.append(username);
+            sb.append(username.toLowerCase());
             sb.append("\" password=\"");
-            sb.append(password);
+            sb.append(URLEncoder.encode(password, "UTF-8"));
             sb.append("\" /></Request>");
             log.debug("About to POST the following [" + sb.toString() + "] to WebAdvisor SSO URL: [" + this.webadvisorSSOURL + "]");
             RequestEntity postData = new StringRequestEntity(sb.toString(), "text/xml", "UTF-8");
